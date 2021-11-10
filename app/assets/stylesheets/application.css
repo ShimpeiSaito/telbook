@@ -13,3 +13,61 @@
  *= require_tree .
  *= require_self
  */
+
+
+/* ページ全体 */
+body {
+    background-color: white;
+    color: black;
+    margin: 0; padding: 0;
+    font-family: Meiryo, sans-serif;
+}
+  
+/* リンク */
+a:link { color: #00c; }
+a:visited { color: #00c; }
+a:hover { color: #f00; }
+a img { border: none; }
+
+/* ブロック要素 */
+p, h1, h2, h3, table, ul {
+  margin: 0 0 1em;
+}
+
+/* 全体の枠 */
+div#container {
+  margin: 0 auto;
+  padding-top: 5px;
+  width: 780px;
+}
+
+/* 左の枠（コンテンツを入れる） */
+main {
+  float: left;
+  width: 530px;
+  padding: 10px 10px 10px 0;
+}
+
+/* ヘッダー */
+header {
+  border-top: 4px solid #3BAF75;
+  padding-top: 4px;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+span.subject{
+  color: rgb(206, 26, 26);
+}
+
+
+
+/* フッター */
+footer {
+  clear: both;
+  font: 11px Verdana;
+  color: #888;
+  padding: 8px 0;
+  border-top: 4px solid #3BAF75;
+  text-align: center;
+}
