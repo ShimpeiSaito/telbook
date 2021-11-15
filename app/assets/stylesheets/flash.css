@@ -4,10 +4,3 @@ p.notice {
     padding: 3px;
     background-color: #ccf;
 }
-
-/*　以下オリジナル！　*/
-p.alert {
-    font-size: 12px;
-    color: red;
-    margin-bottom: 0px;
-}

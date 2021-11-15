@@ -1,0 +1,18 @@
+<% @page_title = "友達の詳細" %>
+
+<h1><%= @page_title %></h1>
+
+<h2><%= @friend.name %></h2>
+
+<ul>
+    <% @friend.telephones&.each do |phone| %>
+        <li type="circle"><%= phone.number %>
+                <%= link_to "delete", phone, method: :delete, data: { confirm: "本当に削除しますか?" } %></li>
+    <% end %>
+    <%= form_for @telephone do |form| %>
+        <%= form.hidden_field :friend_id, :value => @friend.id %>
+        <li type="circle"><%= form.text_field :number, size: 8 %><%= form.submit %></li>
+    <% end %>
+</ul>
+
+<div class="toolbar2"><%=link_to "<<Top", root_path %></div>

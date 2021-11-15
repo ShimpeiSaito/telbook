@@ -5,6 +5,7 @@ class FriendsController < ApplicationController
 
     def show
         @friend = Friend.find(params[:id])
+        redirect_to controller: :telephones, action: :index, id: @friend.id
     end
 
     def new
