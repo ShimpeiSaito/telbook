@@ -1,6 +1,6 @@
 class FriendsController < ApplicationController
     def index
-        @friends = Friend.order(:id).page(params[:page]).per(10)
+        @friends = Friend.order(:id).page(params[:page]).per(9)
     end
 
     def show

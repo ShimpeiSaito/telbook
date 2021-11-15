@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      friend: 友達
+      telephone: 電話番号
+    attributes:
+      friend:
+        name: 名前
+      telephone:
+        number: 電話番号
+        cellphone: 📱
+    errors:
+      messages:
+        invalid_telephone_number: は数字とハイフンまたは丸括弧で入力してください。

@@ -4,14 +4,16 @@
 
 <h2><%= @friend.name %></h2>
 
+<%= render "shared/errors", obj: @telephone %>
+
 <ul>
     <% @friend.telephones&.each do |phone| %>
-        <li type="circle"><%= phone.number %>
+        <li type="circle"><%= phone.number %><%= phone.cellphone ? "📱" : "" %>
                 <%= link_to "delete", phone, method: :delete, data: { confirm: "本当に削除しますか?" } %></li>
     <% end %>
     <%= form_for @telephone do |form| %>
         <%= form.hidden_field :friend_id, :value => @friend.id %>
-        <li type="circle"><%= form.text_field :number, size: 8 %><%= form.submit %></li>
+        <li type="circle"><%= form.text_field :number, size: 8 %><%= form.check_box :cellphone, {}, true, false %><%= form.label :cellphone %><%= form.submit %></li>
     <% end %>
 </ul>
 
