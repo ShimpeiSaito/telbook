@@ -1,0 +1,11 @@
+<% @page_title = "友達の詳細" %>
+
+<h1><%= @page_title %></h1>
+
+<h2><%= @friend.name %></h2>
+
+<ul>
+    <% @friend.telephones&.each do |phone| %>
+        <li type="circle"><%= phone.number %></li>
+    <% end %>
+</ul>

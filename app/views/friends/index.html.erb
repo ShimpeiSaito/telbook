@@ -1,0 +1,30 @@
+<% @page_title = "友達一覧" %>
+<h1><%= @page_title %></h1>
+
+<% if @friends.present? %>
+    <table class="list">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>友達名</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @friends.each do |friend| %>
+                <tr>
+                    <td style="text-align: right"><%= friend.id %></td>
+                    <td><%= link_to friend.name, friend %></td>
+                    <td>
+                        <%= link_to "編集", [:edit, friend] %> |
+                        <%= link_to "削除", friend, method: :delete, 
+                                data: { confirm: "本当に削除しますか?" } %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <%= paginate @friends %>
+<% else %>
+    <p>友達情報がありません。</p>
+<% end %>

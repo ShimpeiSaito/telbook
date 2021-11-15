@@ -71,3 +71,12 @@ footer {
   border-top: 4px solid #3BAF75;
   text-align: center;
 }
+
+/* メインコンテンツ */
+main h1 {
+  color: #88c;
+  font-weight: normal;
+  font-size: 150%;
+  border-bottom: 2px solid #88c;
+  margin-bottom: 0.5em;
+}
