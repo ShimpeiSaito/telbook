@@ -80,3 +80,9 @@ main h1 {
   border-bottom: 2px solid #88c;
   margin-bottom: 0.5em;
 }
+
+div.toolbar {
+  padding: 15px 0;
+  font-size: 90%;
+  text-align: right;
+}
