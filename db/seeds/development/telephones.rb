@@ -1,9 +1,22 @@
-# telephones = ["043-1111-2222", "080-3333-4444", "090-5555-6666"]
-# %w(Taro Jiro Hana).each do |name|
-#     0.upto(2) do |idx|
-#         Telephone.create(
-#             number: telephones[idx],
-#             cellphone: ture
-#         )
-#     end
-# end
+fnames = ["伊藤", "加藤", "工藤", "近藤", "遠藤"]
+gnames = ["春男", "夏子", "秋男", "冬子"]
+names = []
+
+0.upto(7) do |idx|
+    names[idx] = "#{fnames[idx % 5]} #{gnames[idx % 4]}"
+end
+
+def random_number_generator(n)
+    ''.tap { |s| n.times { s << rand(0..9).to_s } }
+end
+
+for name in names do
+    friend = Friend.find_by(name: name)
+    0.upto(4) do |idx|
+      Telephone.create(
+          friend_id: friend.id,
+          number: random_number_generator(3) + "-" + random_number_generator(4) + "-" + random_number_generator(4),
+          cellphone: idx % 2 == 0 ? true : false
+      )
+    end
+end

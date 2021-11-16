@@ -1,9 +1,7 @@
 class TelephonesController < ApplicationController
   def index
     @friend = Friend.find(params[:id])
-    if params[:friend_id]
-      @telephones = @friend.telephones
-    end
+    @telephones = @friend.telephones
 
     @telephone = Telephone.new
   end
