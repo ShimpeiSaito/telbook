@@ -32,7 +32,7 @@ a:hover { color: #f00; }
 a img { border: none; }
 
 .name {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 /* ブロック要素 */
@@ -40,16 +40,32 @@ p, h1, h2, h3, table, ul {
   margin: 0 0 1em;
 }
 
-table.table {
+h2 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.btn-link {
+  color:  #008C00; 
+}
+.btn-link:hover {
+  color:  #00CC00; 
+}
+
+#friends-tb {
   counter-reset: rowCount;
 }
 
-table.table > tbody > tr {
+#friends-tb > tbody > tr {
   counter-increment: rowCount;
 }
 
-table.table > tbody > tr > td:first-child::before {
+#friends-tb > tbody > tr > td:first-child::before {
   content: counter(rowCount);
+}
+
+#friend-edit-tb {
+  margin-top: 30px;
 }
 
 td {
@@ -57,9 +73,17 @@ td {
   vertical-align: middle;
 }
 
+.table-button {
+  text-align: center;
+}
+
 th {
   text-align: center;
   vertical-align: middle;
+}
+
+.save-botton {
+  text-align: right;
 }
 
 /* 全体の枠 */
@@ -81,15 +105,13 @@ main {
 header {
   border-top: 4px solid #3BAF75;
   padding-top: 4px;
-  font-size: xx-large;
+  font-size: 40px;
   font-weight: bold;
 }
 
 span.subject{
   color: rgb(206, 26, 26);
 }
-
-
 
 /* フッター */
 footer {
@@ -115,4 +137,8 @@ div.toolbar {
   padding: 15px 0;
   font-size: 90%;
   text-align: right;
+}
+
+div.toolbar2 {
+  margin-top: 60px;
 }

@@ -1,6 +1,6 @@
 <%= render "shared/errors", obj: @friend %>
 
-<table class="attr">
+<table class="table" id="friend-edit-tb">
     <tr>
         <th><%= form.label :name %></th>
         <td><%= form.text_field :name, size: 8, :size=>"30x10" %></td>
