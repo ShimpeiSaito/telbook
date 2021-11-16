@@ -1,6 +1,6 @@
 class FriendsController < ApplicationController
     def index
-        @friends = Friend.order(:id).page(params[:page]).per(9)
+        @friends = Friend.order(:id).page(params[:page]).per(5)
     end
 
     def show
@@ -10,6 +10,7 @@ class FriendsController < ApplicationController
 
     def new
         @friend = Friend.new
+        render :edit
     end
 
     def edit
@@ -19,9 +20,9 @@ class FriendsController < ApplicationController
     def create
         @friend = Friend.new(params[:friend])
         if @friend.save
-            redirect_to @friend, notice: "友達を登録しました。"
+            redirect_to :friends, notice: "友達を登録しました。"
         else
-            render "new"
+            render "edit"
         end
     end
 
@@ -29,7 +30,7 @@ class FriendsController < ApplicationController
         @friend = Friend.find(params[:id])
         @friend.assign_attributes(params[:friend])
         if @friend.save
-            redirect_to @friend, notice: "友達を更新しました。"
+            redirect_to :friends, notice: "友達を更新しました。"
         else
             render "edit"
         end

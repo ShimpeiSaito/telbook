@@ -6,15 +6,60 @@
 
 <%= render "shared/errors", obj: @telephone %>
 
-<ul>
-    <% @friend.telephones&.each do |phone| %>
-        <li type="circle"><%= phone.number %><%= phone.cellphone ? "📱" : "" %>
-                <%= link_to "delete", phone, method: :delete, data: { confirm: "本当に削除しますか?" } %></li>
-    <% end %>
-    <%= form_for @telephone do |form| %>
-        <%= form.hidden_field :friend_id, :value => @friend.id %>
-        <li type="circle"><%= form.text_field :number, size: 8 %><%= form.check_box :cellphone, {}, true, false %><%= form.label :cellphone %><%= form.submit %></li>
-    <% end %>
-</ul>
+
+<table class="table-phone">
+    <col width="50">
+    <col width="380">
+
+    <tbody>
+        <% @friend.telephones&.each do |phone| %>
+            <tr>
+                <td style="text-align: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dot" viewBox="0 0 16 16">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                    </svg>
+                </td>
+                <td>
+                    <%= phone.number %>
+                    <% if phone.cellphone %>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-phone-fill" viewBox="0 0 16 16">
+                            <path d="M3 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V2zm6 11a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
+                        </svg>
+                    <% end %>
+                </td>
+                <td>
+                    <%= link_to phone, method: :delete, data: { confirm: "本当に削除しますか?" } do %>
+                        <button type="button" class="btn btn-outline-danger">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                            </svg>
+                            削除する
+                        </button>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+        <tr>
+            <td style="text-align: center;">・</td>
+            <%= form_for @telephone do |form| %>
+                <td>
+                    <%= form.hidden_field :friend_id, :value => @friend.id %>
+                    <%= form.text_field :number, size: 8, :size=>"25x10" %> <%= form.check_box :cellphone, {}, true, false %>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-phone-fill" viewBox="0 0 16 16">
+                        <path d="M3 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V2zm6 11a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
+                    </svg>
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                            </svg>
+                            追加する
+                    </button>
+                </td>
+            <% end %>
+        </tr>
+    </tbody>
+</table>
 
 <div class="toolbar2"><%=link_to "<<Top", root_path %></div>

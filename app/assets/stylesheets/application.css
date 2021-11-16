@@ -24,14 +24,42 @@ body {
 }
   
 /* リンク */
-a:link { color: #00c; }
+a:link { 
+  color: #00c; 
+}
 a:visited { color: #00c; }
 a:hover { color: #f00; }
 a img { border: none; }
 
+.name {
+  font-size: 18px;
+}
+
 /* ブロック要素 */
 p, h1, h2, h3, table, ul {
   margin: 0 0 1em;
+}
+
+table.table {
+  counter-reset: rowCount;
+}
+
+table.table > tbody > tr {
+  counter-increment: rowCount;
+}
+
+table.table > tbody > tr > td:first-child::before {
+  content: counter(rowCount);
+}
+
+td {
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  text-align: center;
+  vertical-align: middle;
 }
 
 /* 全体の枠 */
@@ -43,8 +71,9 @@ div#container {
 
 /* 左の枠（コンテンツを入れる） */
 main {
-  float: left;
-  width: 530px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
   padding: 10px 10px 10px 0;
 }
 
@@ -74,10 +103,11 @@ footer {
 
 /* メインコンテンツ */
 main h1 {
-  color: #88c;
+  margin-top: 5px;
+  color: #1C8993;
   font-weight: normal;
   font-size: 150%;
-  border-bottom: 2px solid #88c;
+  border-bottom: 2px solid #1C8993;
   margin-bottom: 0.5em;
 }
 
